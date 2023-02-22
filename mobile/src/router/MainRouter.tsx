@@ -1,16 +1,17 @@
-import { NavigationContainer } from '@react-navigation/native';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
 
-import { DocsScreen } from '../screens/DocsScreen';
+import { DocumentsScreen } from '../screens/DocumentsScreen';
 
-const Stack = createNativeStackNavigator();
+export type MainStackParamList = {
+  Documents: undefined;
+};
+
+const MainStack = createNativeStackNavigator<MainStackParamList>();
 
 export function MainRouter() {
   return (
-    <NavigationContainer>
-      <Stack.Navigator>
-        <Stack.Screen name="Docs" component={DocsScreen} />
-      </Stack.Navigator>
-    </NavigationContainer>
+    <MainStack.Navigator>
+      <MainStack.Screen name="Documents" component={DocumentsScreen} />
+    </MainStack.Navigator>
   );
 }

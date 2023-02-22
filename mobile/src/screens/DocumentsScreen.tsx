@@ -1,6 +1,6 @@
 import * as N from 'native-base';
 
-export function DocsScreen() {
+export function DocumentsScreen() {
   return (
     <N.Container>
       <N.Text>Documentos</N.Text>
