@@ -2,8 +2,8 @@ import { useEffect } from 'react';
 
 import * as SplashScreen from 'expo-splash-screen';
 
-import { useFonts } from 'expo-font';
 import {
+  useFonts,
   Inter_400Regular,
   Inter_500Medium,
   Inter_600SemiBold,
@@ -17,6 +17,7 @@ import {
 
 import { Router } from './router/Router';
 import { NativeBaseLib } from './lib/NativeBaseLib';
+import { GlobalHooks } from './hooks/globals/GlobalHooks';
 
 SplashScreen.preventAutoHideAsync();
 
@@ -31,13 +32,11 @@ export function Home() {
     Roboto_700Bold
   });
 
-  useEffect(() => {
-    if (isFontsLoaded) SplashScreen.hideAsync();
-  }, [isFontsLoaded]);
-
   return (
     <NativeBaseLib>
-      <Router />
+      <GlobalHooks>
+        <Router />
+      </GlobalHooks>
     </NativeBaseLib>
   );
 }

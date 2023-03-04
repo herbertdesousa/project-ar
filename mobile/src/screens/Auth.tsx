@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react';
+import { useEffect } from 'react';
 import * as NB from 'native-base';
 
 import * as WebBrowser from 'expo-web-browser';
@@ -6,7 +6,6 @@ import * as WebBrowser from 'expo-web-browser';
 import { GoogleIconSVG } from '@/assets/GoogleIconSVG';
 import { LogoSVG } from '@/assets/LogoSVG';
 
-import { makeRedirectUri } from 'expo-auth-session';
 import { useAuthRequest } from 'expo-auth-session/build/providers/Google';
 import { useAuth } from '@/hooks/globals/AuthContext';
 
@@ -23,7 +22,7 @@ interface AuthedUser {
 
 WebBrowser.maybeCompleteAuthSession();
 
-export function AuthSignIn() {
+export function Auth() {
   const [, response, promptAsync] = useAuthRequest({
     expoClientId:
       '819357549818-02a91h292d83d6i1nmcidaokf9a1fumo.apps.googleusercontent.com',
