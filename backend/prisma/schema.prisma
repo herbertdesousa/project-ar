@@ -1,0 +1,33 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgres"
+  url      = env("DATABASE_URL")
+}
+
+model users {
+  id_user String @unique @default(uuid())
+
+  firebase_uid String @unique
+
+  createdAt      DateTime         @default(now())
+  updatedAt      DateTime         @updatedAt
+  user_companies user_companies[]
+}
+
+model user_companies {
+  id_user_company String @unique @default(uuid())
+
+  name                  String @default("")
+  user                  users  @relation(fields: [id_user], references: [id_user])
+  id_user               String
+  legal_entity_document String @default("")
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
