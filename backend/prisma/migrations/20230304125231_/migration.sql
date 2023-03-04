@@ -1,7 +1,7 @@
 -- CreateTable
 CREATE TABLE "users" (
     "id_user" TEXT NOT NULL,
-    "firebase_uid" TEXT NOT NULL,
+    "id_auth" TEXT NOT NULL,
     "createdAt" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updatedAt" TIMESTAMP(3) NOT NULL
 );
@@ -20,7 +20,7 @@ CREATE TABLE "user_companies" (
 CREATE UNIQUE INDEX "users_id_user_key" ON "users"("id_user");
 
 -- CreateIndex
-CREATE UNIQUE INDEX "users_firebase_uid_key" ON "users"("firebase_uid");
+CREATE UNIQUE INDEX "users_id_auth_key" ON "users"("id_auth");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "user_companies_id_user_company_key" ON "user_companies"("id_user_company");
